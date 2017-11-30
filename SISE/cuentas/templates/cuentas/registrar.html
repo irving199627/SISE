@@ -1,0 +1,115 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block title %}Registro{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'sise/css/estilo_registro.css'%}">
+<link rel="stylesheet" href="{% static 'sise/css/animate.css'%}">
+{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col s12 m6 l3"><p></p></div>
+  <div class="animated bounceIn">
+
+
+  <div class="col s12 m6 l6">
+      <div id="login-page" class="row">
+        <div class="col s12 z-depth-6 card-panel">
+          <form method="POST" name="registro">
+            {% csrf_token %}
+
+            <div class="row">
+              <div class="input-field col s12 center">
+                <!-- <img src="http://w3lessons.info/logo.png" alt="" class="responsive-img valign profile-image-login"> -->
+                <p class="center login-form-text">Registrarse</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <!-- <div class="col s12 m4 l2"><p>s12 m4</p></div> -->
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">account_circle</i>
+
+                      <input class="validate" id="nombre" type="text" class="validate" name="first_name">
+                      <label for="nombre" class="center-align">Nombre(s)</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input class="validate" id="apellido" type="text" class="validate" name="last_name">
+                      <label for="apellido" class="center-align">Apellido(s)</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">person_outline</i>
+                      <input class="validate" id="username" type="text" class="validate" name="username">
+                      <label for="username" class="center-align">Usuario</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">email</i>
+                      <input class="validate" id="email" type="email" class="validate" name="email">
+                      <label for="email" class="center-align">Email</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col s12">
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">lock_outline</i>
+                      <input id="pw" type="password" class="validate" name="password1">
+                      <label for="pw">Contraseña</label>
+                      <p>la contraseña debe tener minimo 8 caracteres</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">lock_outline</i>
+                      <input id="pw2" type="password" class="validate" name="password2">
+                      <label for="pw2">Confirmar Contraseña</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <!-- <a href="login.html" class="btn waves-effect waves-light col s12">Login</a> -->
+                <button class="btn waves-effect green lighten-3 col s12 black-text" type="submit" name="action">Registrarse
+                  <i class="material-icons prefix">send</i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="{% static 'sise/js/valida_registro.js' %}"></script>
+{% endblock %}

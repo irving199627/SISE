@@ -1,0 +1,45 @@
+{% extends 'base2.html'%}
+{% load staticfiles %}
+{% block title %}Administrar usuarios{% endblock %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'sise/css/animate.css'%}">
+
+{% endblock%}
+{% block body%}
+<div class="animated swing">
+<div class="row">
+  <div class="col s12 m6 l3"><p></p></div>
+  <div class="col s12 m6 l6">
+      <div id="login-page" class="row">
+        <div class="col s12 card-panel hoverable">
+          <div class="col s1">
+          </div>
+          <div class="col s10">
+
+
+      <table class="bordered centered">
+        <thead>
+          <tr>
+              <th>Usuario</th>
+              <th>Eliminar</th>
+          </tr>
+        </thead>
+    {% for user in users %}
+        <tbody>
+          <tr>
+            <td><h6>{{ user.username }}</h6>
+            </td>
+            <td><a class="btn-floating btn-large waves-effect waves-light red" href="{% url 'cuentas:delete_user' pk=user.pk %}"><i class="material-icons">delete</i></a></td>
+          </tr>
+        </tbody>
+    {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+    </div>
+  </div>
+
+{% endblock %}

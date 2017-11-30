@@ -1,0 +1,16 @@
+{% extends "posts/post_base.html" %}
+
+{% block prepost %}
+<div class="col-md-4">
+	<h1>@{{ comentario_user.username }}</h1>
+	<p>Publicaciones</p>
+</div>
+{% endblock %}
+
+{% block post_content %}
+<div class="col-md-8">
+	{% for comentario in comentario_list %}
+		{% include "comentarios/_comentario.html" %}
+	{% endfor %}
+</div>
+{% endblock %}

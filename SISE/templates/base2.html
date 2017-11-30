@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% block link %}{% endblock %}
+    <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style media="screen">
+  .hola{
+    margin-left: 50%;
+  }
+  .nombre{
+    margin-left: 20%;
+  }
+  header, main, footer {
+   padding-left: 300px;
+ }
+
+ @media only screen and (max-width : 992px) {
+   header, main, footer {
+     padding-left: 0;
+   }
+ }
+#fotop{
+  margin-left: 30%;
+}
+
+  </style>
+  </head>
+  <body id="staggered-test" class="grey darken-4">
+    <div class="navbar-fixed">
+      <nav class="light-green lighten-3">
+
+    <div class="nav-wrapper">
+      <a href="{% url 'home' %}" class="brand-logo">SISE</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
+        <li><a href="{% url 'cuentas:lista_usuarios' %}" class="waves-effect black-text"><i class="material-icons left">code</i>Administrar Usuarios</a></li>
+        {% endif %}
+          <li><a href="{% url 'cuentas:perfil' %}" class="waves-effect black-text"><i class="material-icons left">person</i>Perfil</a></li>
+          <li><a href="{% url 'cuentas:edit_profile'%}" class="waves-effect black-text"><i class="material-icons left">edit</i>Ediar Perfil</a></li>
+          <li><a href="{% url 'post' %}" class="waves-effect black-text"><i class="material-icons left">comment</i>Publicaciones</a></li>
+          <li><a href="{% url 'posts:create' %}" class="waves-effect black-text"><i class="material-icons left">add_box</i>Crear Post</a></li>
+          <li><a href="{% url 'cuentas:logout' %}" class="black-text"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'cuentas:login' %}" class="waves-effect black-text"><i class="material-icons left">person_pin</i>Iniciar Sesion</a></li>
+          <li><a href="{% url 'cuentas:registro' %}" class="waves-effect black-text"><i class="material-icons left">person_add</i>Registrarse</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+    </div>
+    <ul class="side-nav" id="mobile-demo">
+      {% if user.is_authenticated and user.is_active %}
+      {% if user.is_staff %}
+      <li><a href="{% url 'cuentas:lista_usuarios' %}" class="waves-effect black-text"><i class="material-icons left">code</i>Administrar Usuarios</a></li>
+      {% endif %}
+        <li><a href="{% url 'cuentas:perfil' %}" class="waves-effect black-text"><i class="material-icons left">person</i>Perfil</a></li>
+        <li><a href="{% url 'cuentas:edit_profile' %}" class="waves-effect black-text"><i class="material-icons left">edit</i>Ediar Perfil</a></li>
+        <li><a href="{% url 'post' %}" class="waves-effect black-text"><i class="material-icons left">comment</i>Publicaciones</a></li>
+        <li><a href="{% url 'posts:create' %}" class="waves-effect black-text"><i class="material-icons left">add_box</i>Crear Post</a></li>
+        <li><a href="{% url 'cuentas:logout' %}" class="black-text"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+      {% else %}
+        <li><a href="{% url 'cuentas:login' %}" class="waves-effect black-text"><i class="material-icons left">person_pin</i>Iniciar Sesion</a></li>
+        <li><a href="{% url 'cuentas:registro' %}" class="waves-effect black-text"><i class="material-icons left">person_add</i>Registrarse</a></li>
+      {% endif %}
+    </ul>
+
+        {% block body %}
+        {% endblock %}
+
+  </body>
+  {% block script %}{% endblock %}
+
+  <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript">
+  $( document ).ready(function() {
+    $(".button-collapse").sideNav();
+  });
+  $(document).ready(function() {
+  $('select').material_select();
+  });
+
+    $(document).ready(function() {
+  var options = [{
+    selector: '#staggered-test',
+    offset: 300,
+    callback: function(el) {
+      Materialize.showStaggeredList($(el));
+    }
+  },
+  ];
+
+  Materialize.scrollFire(options);
+});
+
+  </script>
+</html>

@@ -1,0 +1,19 @@
+input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+input[type=email]:not(.browser-default):focus:not([readonly]) + label{
+  color: #00bcd4;
+}
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]){
+    border-bottom: 1px solid #00bcd4;
+}
+
+/* label color */
+   .input-field label {
+     color: #000;
+   }
+ /* icon prefix focus color */
+ .input-field .prefix.active {
+   color: #000;
+ }

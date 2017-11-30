@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block contenido %}
+  <div class="jumbotron">
+    <h1>Bienvenido <a href="{% url 'posts:for_user' username=user.username %}">{{user.username}}</a></h1>
+  </div>
+
+
+
+
+{% endblock %}

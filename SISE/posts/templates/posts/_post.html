@@ -1,0 +1,29 @@
+
+  <div class="section white-text">
+    <h5>{{ post.message_html|safe }}</h5>
+    <h6>
+			<span class="username">
+				<a href="{% url 'cuentas:view_profile_pk' pk=post.user.pk %}" class="">@{{ post.user.username }}</a>
+			</span>
+
+			<time class="time">
+				<a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a></time>
+				{{post.created_at}}
+        {% if user.is_authenticated and post.user == user and not hide_delete %}
+        <div class="">
+          <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="waves-effect waves-light btn red">
+            <i class="material-icons prefix white-text">delete</i>
+          </a>
+          <a href="{% url 'posts:update' pk=post.pk %}" title="update" class="waves-effect waves-light btn orange">
+            <i class="material-icons prefix white-text">edit</i></a>
+        </div>
+
+
+          </a>
+        {% endif %}
+
+		  </h6>
+
+          <br>
+       <div class="divider"></div>
+</div>

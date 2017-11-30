@@ -1,0 +1,23 @@
+body{
+  background-color: black;
+  color: white;
+}
+.jumbotron{
+  background-color: black;
+}
+
+a{
+  /*color: #ff0098;*/
+  /*color: #00f9cc;*/
+  color: #f90099
+}
+a:hover{
+  text-decoration: none;
+  color: yellow;
+}
+#coment{
+  color: black;
+}
+#egreso{
+  color: black;
+}

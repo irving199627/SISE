@@ -1,0 +1,123 @@
+{% extends 'base2.html'%}
+{%load staticfiles %}
+{% block title %}Actualizar Perfil{% endblock %}
+{% block script %} <script src="{% static 'sise/js/update_usuario.js' %}"></script>{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col s12 m6 l3"><p></p></div>
+  <div class="col s12 m6 l6">
+      <div id="login-page" class="row">
+        <div class="col s12 z-depth-6 card-panel">
+          <form method="POST" name="registro">
+            {% csrf_token %}
+
+            <div class="row">
+              <div class="input-field col s12 center">
+                <!-- <img src="http://w3lessons.info/logo.png" alt="" class="responsive-img valign profile-image-login"> -->
+                <p class="center login-form-text">Registrarse</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <!-- <div class="col s12 m4 l2"><p>s12 m4</p></div> -->
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">account_circle</i>
+                      <select name="carrera">
+                        <option value="" disabled selected>Elige tu carrera</option>
+                        <option value="Ingenieria En Sistemas">ISC</option>
+                        <option value="Ingenieria Quimica">Ingenieria Quimica</option>
+                        <option value="Ingenieria Bioquimica">Ingenieria Bioquimica</option>
+                        <option value="Ingenieria Industrial">Ingenieria Industrial</option>
+                        <option value="Ingenieria Electrica">Ingenieria Electrica</option>
+                        <option value="Ingenieria Electronica">Ingenieria Electronica</option>
+                        <option value="Ingenieria Mecanica">Ingenieria Mecanica</option>
+                        <option value="Ingenieria Biomedica">Ingenieria Biomedica</option>
+                        <option value="LAE">LAE</option>
+                    </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">account_circle</i>
+                      <select name="egreso">
+                        <option value="" disabled selected>Elige tu año de egreso</option>
+                        <script>
+                         var myDate = new Date();
+                         var year = myDate.getFullYear();
+                         for(var i = 1970; i < year+1; i++){
+                           document.write('<option value="'+i+'">'+i+'</option>');
+                         }
+                         </script>
+                    </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <!-- <div class="col s12 m4 l2"><p>s12 m4</p></div> -->
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">account_circle</i>
+
+                      <input class="validate" id="telefono" type="number" class="validate" name="telefono">
+                      <label for="telefono" class="center-align">Telefono</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s12 m4 l6">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <div class="col s12 m4 l12">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">person_outline</i>
+                      <textarea id="textarea1" class="materialize-textarea" name="descripcion"></textarea>
+                      <label for="textarea1">Descripcion</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col s12">
+                <div class="col s12 m4 l12">
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">person_outline</i>
+                      <textarea id="textarea1" class="materialize-textarea" name="experiencia"></textarea>
+                      <label for="textarea1">Experiencia Laboral</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <!-- <a href="login.html" class="btn waves-effect waves-light col s12">Login</a> -->
+                <button class="btn waves-effect green lighten-3 col s12 black-text" type="submit" name="action">Registrarse
+                  <i class="material-icons prefix">send</i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+  </div>
+</div>
+</div>
+{% endblock %}

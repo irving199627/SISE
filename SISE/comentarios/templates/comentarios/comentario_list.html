@@ -1,0 +1,16 @@
+{% extends "comentarios/comentario_base.html" %}
+{% load humanize %}
+
+{% block post_content %}
+<div class="col-md-8">
+	{% if user.comentario.count == 0 %}
+	<h2 class="text-center">No hay publicaciones</h2>
+
+	{% else %}
+	{% for comentario in comentario_list %}
+
+  {% include "comentarios/_comentario.html" %}
+	{% endfor %}
+	{% endif %}
+</div>
+{% endblock %}

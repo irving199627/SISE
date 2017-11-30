@@ -1,0 +1,20 @@
+{% extends "posts/post_base.html" %}
+
+
+{% block post_content %}
+<div class="animated jello">
+
+
+<h3>Estás seguro de querer eliminar esta publicación?</h3>
+
+<div class="posts">
+	{% include "posts/_post.html" with post=object hide_delete=True %}
+</div>
+
+<form method="POST">
+	{% csrf_token %}
+	<input type="submit" value="Confirmar" class="waves-effect waves-light btn red">
+	<a href="{% url 'posts:all' %}" class="waves-effect waves-light btn orange">Cancelar</a>
+</form>
+</div>
+{% endblock %}
